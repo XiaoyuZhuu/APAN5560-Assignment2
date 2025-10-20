@@ -1,0 +1,12 @@
+services:
+  api:
+    build: .
+    image: assignment2-cnn:latest
+    container_name: assignment2-cnn
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./models:/app/models
+    environment:
+      - MODEL_PATH=/app/models/cnn_cifar10.pt
+    restart: unless-stopped
